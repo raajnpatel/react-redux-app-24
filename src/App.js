@@ -5,24 +5,24 @@ import { getPoke, getWater, getFire, getLightning, getGrass, getPokes } from "./
 
 
 function App(props) {
-    const [pokemon, setPokemon] = useState("");
-console.log(pokemon);
+    // const [pokemon, setPokemon] = useState("");
+// console.log(pokemon);
 console.log(props);
   return (
     <div className="App">
       <h1>Pokemon: Random Trading Cards!</h1>
-        <div className="Search">
-        <input
-            type="text"
-            placeholder="Enter Pokemon Name"
-            value={pokemon}
-            onChange={e => setPokemon(e.target.value)}
-        />
-            <button onClick={() => props.getPokes(pokemon)}>Search</button>
-            {props.poke.map(p => (
-                <img src = {p.poke.imageUrl} alt={p.poke.name} key={p.id}/>
-            ))}
-        </div>
+        {/*<div className="Search">*/}
+        {/*<input*/}
+        {/*    type="text"*/}
+        {/*    placeholder="Enter Pokemon Name"*/}
+        {/*    value={pokemon}*/}
+        {/*    onChange={e => setPokemon(e.target.value)}*/}
+        {/*/>*/}
+        {/*    <button onClick={() => props.getPokes(pokemon)}>Search</button>*/}
+        {/*    {props.poke.map(p => (*/}
+        {/*        <img src = {p.poke.imageUrl} alt={p.poke.name} key={p.id}/>*/}
+        {/*    ))}*/}
+        {/*</div>*/}
 
         <div className="theButtons">
             <button onClick = {props.getPoke}>Click for Classic Pokemon!</button>

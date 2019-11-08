@@ -32,8 +32,8 @@ export const getWater = () => dispatch => {
     dispatch({ type: FETCH_POKE_WATER });
     let rando = Math.floor(Math.random() * 100);
     axios
-        .get("https://api.pokemontcg.io/v1/cards?types=Water")
-        .then(res => console.log(res) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
+        .get("https://api.pokemontcg.io/v1/cards?types=Water", {headers: {count:200}} )
+        .then(res => console.log(res.data) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
         .catch(error => {dispatch({ type: FETCH_POKE_FAILURE, payload: error.response})})
 };
 
@@ -42,7 +42,7 @@ export const getFire = () => dispatch => {
     let rando = Math.floor(Math.random() * 100);
     axios
         .get("https://api.pokemontcg.io/v1/cards?types=Fire")
-        .then(res => console.log(res) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
+        .then(res => console.log(res.data) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
         .catch(error => {dispatch({ type: FETCH_POKE_FAILURE, payload: error.response})})
 };
 
@@ -51,7 +51,7 @@ export const getLightning = () => dispatch => {
     let rando = Math.floor(Math.random() * 100);
     axios
         .get("https://api.pokemontcg.io/v1/cards?types=Lightning")
-        .then(res => console.log(res) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
+        .then(res => console.log(res.data) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.cards[rando]}))
         .catch(error => {dispatch({ type: FETCH_POKE_FAILURE, payload: error.response})})
 };
 
