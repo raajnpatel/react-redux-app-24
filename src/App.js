@@ -9,6 +9,7 @@ console.log(props);
   return (
     <div className="App">
       <h1>Pokemon: Random Trading Cards!</h1>
+        {props.loading && <div><h3>Loading...</h3></div>}
         {props.poke && (
         <div>
             <img src = {props.poke.imageUrl} alt = {props.poke.name}/>

@@ -13,8 +13,9 @@ export const FETCH_POKE_FAILURE = "FETCH_POKE_FAILURE";
 export const getPoke = () => dispatch => {
     dispatch({ type: FETCH_POKE_START });
     let rando = Math.floor(Math.random() * 100);
+    let smRando = Math.floor(Math.random()* 6) + 1;
     axios
-        .get(`https://api.pokemontcg.io/v1/cards/base1-${rando}`)
+        .get(`https://api.pokemontcg.io/v1/cards/base${smRando}-${rando}`)
         .then(res => console.log(res.data) || dispatch({ type: FETCH_POKE_SUCCESS, payload: res.data.card}))
 };
 
