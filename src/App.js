@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { getPoke } from "./actions";
 
-function App() {
+
+function App(props) {
+console.log(props);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Pokemon: Random Trading Cards!</h1>
+        {props.poke && (
+        <div>
+            <ul>
+                {}
+            </ul>
+            <img src = {props.poke.imageUrl} alt = {props.poke.name}/>
+            <h1>{props.poke.name}</h1>
+        </div>
+        )}
+        <button onClick = {props.getPoke}>Click for Pokemon!</button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        poke: state.poke,
+        error: state.error,
+        loading: state.loading,
+    }
+};
+
+export default connect(mapStateToProps, { getPoke })(App);
